@@ -1,0 +1,53 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Spring Security Example </title>
+</head>
+<body>
+<h1>Create new User</h1>
+<br/><br/>
+{{#user}}
+<form action="/registration" name="user" method="POST">
+    <table border="0">
+        <tr>
+            <td>Name</td>
+            <td>:</td>
+            <td><input type="text" name="name" value="{{#name}}{{name}}{{/name}}" /></td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td>:</td>
+            <td><input type="text" name="email" value="{{#email}}{{email}}{{/email}}" /></td>
+        </tr>
+        <tr>
+            <td>Username</td>
+            <td>:</td>
+            <td><input type="text" name="username" value="{{#username}}{{username}}{{/username}}" /></td>
+        </tr>
+        <tr>
+            <td>Password</td>
+            <td>:</td>
+            <td><input type="text" name="password" value="{{#password}}{{password}}{{/password}}" /></td>
+        </tr>
+        <tr>
+            <td>Phone</td>
+            <td>:</td>
+            <td><input type="text" name="phone" value="{{#phone}}{{phone}}{{/phone}}" /></td>
+        </tr>
+        <tr>
+            <td>Address</td>
+            <td>:</td>
+            <td><input type="text" name="address" value="{{#address}}{{address}}{{/address}}" /></td>
+        </tr>
+    </table>
+    <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
+    <input type="submit" value="Create" />
+</form>
+{{/user}}
+
+<br/>
+<!-- Check if errorMessage is not null and not empty -->
+<div class="error">{{#errorMessage}}{{errorMessage}}{{/errorMessage}}</div>
+{{>footer}}
+    </body>
+</html>
